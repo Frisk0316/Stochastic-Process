@@ -22,65 +22,45 @@
 
 隨著次數越多，我們可以發現每個節點為終點的機率越來越趨近於一致，亦即若有 0 ~ n 個節點，並以 0 號做為起點，其餘節點 (1 ~ n) 為終點的機率為 1/n 
 
-執行程式碼如下:
+### 3. Gambler’s ruin problem
 
-```
-import random
-import numpy as np 
-import matplotlib.pyplot as plt
-import pandas as pd
+a. 初始雙方本金為 10 元, 模擬一萬次, player_1 與 player_2 贏的機率皆為 0.5
 
-# 定義變數
-nodes = 10
-times = 100
+結果：
 
-# 定義所有最終被造訪的節點起始次數為 0 (0 ~ nodes)
-last_visited_counts = [0] * (nodes + 1)
+player 1 win 4950 times
 
-for _ in range(times):
+player 2 win 5050 times
 
-    # 將造訪的節點納入不重複之集合
-    nodes_visited = set()
+![gamblers_ruin_10_10000](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/560c7088-df29-4076-b180-7643c92e1e8d)
 
-    # 將起始點新增進 node_visited
-    current_node = 0 
-    nodes_visited.add(current_node)
+b. 初始雙方本金為 100 元, 模擬一萬次, player_1 與 player_2 贏的機率皆為 0.5
 
-    while len(nodes_visited) <= nodes:
+結果：
 
-        # 決定為 (+1, -1)
-        next_node = current_node + random.choice([1, -1])
+player 1 win 4932 times
 
-        # next_node 為 -1 代表跳到最大的 node
-        if next_node == -1:
-            next_node = nodes
-        
-        # next_node 大於 nodes 代表跳到 0 
-        elif next_node > nodes:
-            next_node = 0
+player 2 win 5068 times
 
-        current_node = next_node
-        
-        # 新增現在的節點
-        nodes_visited.add(current_node) 
-
-        # print("current node: ", current_node)
-        # print("length of nodes visited: ", len(nodes_visited))
-
-    # last_visited_node = current_node
-    last_visited_counts[current_node] += 1
-
-    # print("")
-    # print("last visit node is: ", current_node)
-    # print("")
-
-# 作圖, 要注意的是共有 n + 1 個 nodes
-plt.bar(range(0, nodes + 1), last_visited_counts)
-plt.xlabel('Last Visited Node')
-plt.ylabel('Frequency')
-plt.title(f'Last Visited Node Frequency (Simulations: {times})')
-plt.xticks(range(0, nodes + 1))
-plt.show()
+![gamblers_ruin_100_10000](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/1d68396f-71f7-4f02-bb29-3f37c722ec6a)
 
 
-```
+c. 初始雙方本金為 10 元, 模擬一萬次, player_1 贏的機率為 0.6, 而 player_2 贏的機率為 0.4
+
+結果：
+
+player 1 win 9836 times
+
+player 2 win 164 times
+
+![gamblers_ruin_10_10000_0 6](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/5862f512-336a-4691-ad35-7bb517d23f03)
+
+d. 初始雙方本金為 100 元, 模擬一萬次, player_1 贏的機率為 0.6, 而 player_2 贏的機率為 0.4
+
+結果：
+
+player 1 win 10000 times
+
+player 2 win 0 times
+
+![gamblers_ruin_100_10000_0 6](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/829a9991-614c-4b5f-a191-8abf84e0d090)
