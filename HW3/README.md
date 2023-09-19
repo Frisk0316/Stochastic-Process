@@ -1,5 +1,4 @@
 # 隨機過程 HW3 
-## r12723071 陳芃
 
 ### 1. Simulate the process of the moving particle until all nodes are visited
 
