@@ -1,19 +1,23 @@
-![1000](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/ed915e74-73ce-4bde-8296-1ba4a1e2ebd0)# 隨機過程 HW3 
+# 隨機過程 HW3 
 
 ### 1. Simulate the process of the moving particle until all nodes are visited
 
 以下分別是以 0 為起點, 執行 100, 1000, 10000, 及 100000 次的結果
 
 **100 次**
+
 ![100](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/a79dca11-8d4c-4cbd-b06a-3287a1533c82)
 
 **1,000 次**
+
 ![1000](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/6cb1e029-22f4-4cb0-aa39-c66dcd42e656)
 
 **10,000 次**
+
 ![10000](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/0a99d3bf-bd30-46b2-a9d5-fc5e2c00aa58)
 
 **100,000 次**
+
 ![100000](https://github.com/Frisk0316/Stochastic-Process/assets/79501315/0f6534f7-c992-419b-9878-f68e9eb65f90)
 
 執行程式碼如下:
